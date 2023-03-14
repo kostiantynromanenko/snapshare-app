@@ -1,17 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.scss'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Amplify } from 'aws-amplify';
+import { ThemeProvider } from '@emotion/react';
+import { ProvideAuth } from '@features/auth/useAuth';
+import App from './App';
+import { awsAuthConfig } from './config/auth';
+import { defaultTheme, GlobalStyles } from './theming';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+Amplify.configure({ Auth: awsAuthConfig });
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <ProvideAuth>
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
+    </ProvideAuth>
   </React.StrictMode>,
-)
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
+);

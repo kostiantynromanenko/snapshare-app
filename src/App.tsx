@@ -1,19 +1,19 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.scss'
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { makePrivate } from '@features/auth';
+import { SignIn } from '@features/sign-in';
 
-const App = (): JSX.Element => (
-  <div className='App'>
-    <header className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-        Learn React
-      </a>
-    </header>
-  </div>
-)
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: makePrivate(<div>Hello</div>),
+  },
+  {
+    path: 'login',
+    element: <SignIn />,
+  },
+]);
 
-export default App
+const App = (): JSX.Element => <RouterProvider router={router} />;
+
+export default App;
