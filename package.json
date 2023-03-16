@@ -45,7 +45,8 @@
     "build": "craco build",
     "test": "craco test",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,scss,md,json} --config ./.prettierrc",
-    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "eject": "react-scripts eject"
   },
   "browserslist": {
