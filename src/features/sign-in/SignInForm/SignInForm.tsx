@@ -1,8 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button, ErrorMessage, Input } from '@features/ui';
 import { isValidEmail, isValidUsername, passwordRegex } from '@features/validation';
+import { Button, ErrorMessage, Input } from '@features/ui';
 import { Form } from './styled';
 
 type SignInFormValues = {
