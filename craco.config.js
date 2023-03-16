@@ -1,0 +1,10 @@
+const path = require(`path`);
+
+module.exports = {
+  webpack: {
+    alias: {
+      '@features': path.resolve(__dirname, 'src/features'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+    },
+  },
+};
