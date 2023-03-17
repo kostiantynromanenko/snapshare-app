@@ -1,5 +1,4 @@
-import styled from '@emotion/styled';
-import { Spinner } from '@features/ui';
+import styled from 'styled-components';
 import { getVariantColor, getVariantTextColor } from '../utils/getColors';
 import { ButtonProps } from './Button';
 
@@ -33,7 +32,7 @@ export const Button = styled.button<ButtonProps>`
   }
 `;
 
-export const ButtonSpinner = styled(Spinner)`
+export const ButtonSpinner = styled.div`
   display: inline-block;
   margin-left: ${({ theme }) => theme.spacing()};
   border-top-color: ${getVariantTextColor()};

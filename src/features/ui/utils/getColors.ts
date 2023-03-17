@@ -1,7 +1,7 @@
-import { Theme } from '@emotion/react';
+import { DefaultTheme } from 'styled-components';
 import { StyleVariant } from './styleVariant';
 
-type GetColorArgs = { variant?: StyleVariant; theme: Theme };
+type GetColorArgs = { variant?: StyleVariant; theme: DefaultTheme };
 
 export const getVariantColor =
   () =>

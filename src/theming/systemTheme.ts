@@ -1,7 +1,7 @@
-import { Theme } from '@emotion/react';
 import { createTheme } from '@features/theme';
+import { DefaultTheme } from 'styled-components';
 
-export const systemTheme: Theme = createTheme({
+export const systemTheme: DefaultTheme = createTheme({
   palette: {
     primary: {
       main: '#00a97f',

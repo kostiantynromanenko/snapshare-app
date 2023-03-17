@@ -1,5 +1,4 @@
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import styled, { keyframes } from 'styled-components';
 import { SpinnerProps } from './Spinner';
 import { getVariantColor } from '../utils/getColors';
 

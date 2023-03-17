@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Amplify } from 'aws-amplify';
-import { ThemeProvider } from '@emotion/react';
 import { ProvideAuth } from '@features/auth/useAuth';
+import { ThemeProvider } from 'styled-components';
 import App from './App';
 import { awsAuthConfig } from './config/auth';
 import { systemTheme, GlobalStyles } from './theming';

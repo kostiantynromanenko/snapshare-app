@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const ErrorMessage = styled.span`
   display: inline-block;

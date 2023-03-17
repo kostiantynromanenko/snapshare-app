@@ -3,6 +3,7 @@ import { StyleVariant } from '../utils/styleVariant';
 import { Spinner as StyledSpinner } from './styled';
 
 export interface SpinnerProps {
+  className?: string;
   variant?: StyleVariant;
   size?: number;
   thickness?: number;
