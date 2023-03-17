@@ -1,17 +1,21 @@
 import styled from '@emotion/styled';
+import { Spinner } from '@features/ui';
+import { getVariantColor, getVariantTextColor } from '../utils/getColors';
 import { ButtonProps } from './Button';
-import { getBackgroundColor, getTextColor } from '../utils/getColors';
 
 export const Button = styled.button<ButtonProps>`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   padding: ${({ theme }) => theme.spacing(1.5, 2)};
   border: none;
   border-radius: 6px;
-  background-color: ${getBackgroundColor()};
-  color: ${getTextColor()};
+  background-color: ${getVariantColor()};
+  color: ${getVariantTextColor()};
   font: inherit;
-  font-weight: 600;
+  font-weight: 500;
+  text-transform: uppercase;
   line-height: 1.5;
 
   &:disabled {
@@ -24,7 +28,14 @@ export const Button = styled.button<ButtonProps>`
     opacity: ${({ theme }) => theme.palette.actions.hoverOpacity};
   }
 
-  &:active {
+  &:active:not(:disabled) {
     opacity: 1 !important;
   }
+`;
+
+export const ButtonSpinner = styled(Spinner)`
+  display: inline-block;
+  margin-left: ${({ theme }) => theme.spacing()};
+  border-top-color: ${getVariantTextColor()};
+  border-bottom-color: ${getVariantTextColor()};
 `;

@@ -1,13 +1,17 @@
 import React from 'react';
-import { Button as StyledButton } from './styled';
+import { Button as StyledButton, ButtonSpinner } from './styled';
 import { StyleVariant } from '../utils/styleVariant';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: React.ReactNode;
-  fullWidth?: boolean;
   variant?: StyleVariant;
+  fullWidth?: boolean;
+  loading?: boolean;
 };
 
-export const Button = ({ children, ...props }: ButtonProps): JSX.Element => (
-  <StyledButton {...props}>{children}</StyledButton>
+export const Button = ({ children, disabled, loading, ...props }: ButtonProps): JSX.Element => (
+  <StyledButton {...props} disabled={disabled || loading}>
+    {children}
+    {loading && <ButtonSpinner variant={props.variant} size={20} thickness={3} />}
+  </StyledButton>
 );
