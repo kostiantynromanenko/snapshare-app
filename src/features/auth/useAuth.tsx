@@ -1,5 +1,6 @@
-import { Auth } from 'aws-amplify';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Auth } from 'aws-amplify';
+import { CognitoUser } from 'amazon-cognito-identity-js';
 
 interface AuthResult {
   success: boolean;
@@ -10,7 +11,7 @@ interface AuthContextState {
   isLoading: boolean;
   isAuthenticated: boolean;
   username: string;
-  signIn: (username: string, password: string) => Promise<AuthResult>;
+  signIn: (username: string, password: string) => Promise<CognitoUser | undefined>;
   signOut: () => void;
 }
 
@@ -30,7 +31,7 @@ const useProvideAuth = (): AuthContextState => {
   useEffect(() => {
     Auth.currentAuthenticatedUser()
       .then((result) => {
-        setUsername(result.username);
+        setUsername(result);
         setIsAuthenticated(true);
         setIsLoading(false);
       })
@@ -41,17 +42,21 @@ const useProvideAuth = (): AuthContextState => {
       });
   }, []);
 
-  const signIn = async (uname: string, password: string): Promise<AuthResult> => {
+  const signIn = async (uname: string, password: string): Promise<CognitoUser | undefined> => {
     try {
-      const result = await Auth.signIn(uname, password);
-      setUsername(result.username);
+      let cognitoUser: CognitoUser = await Auth.signIn(uname, password);
+
+      if (cognitoUser.challengeName === 'NEW_PASSWORD_REQUIRED') {
+        cognitoUser = await Auth.completeNewPassword(cognitoUser, password, {
+          preferred_username: uname,
+        });
+      }
+
+      setUsername(uname);
       setIsAuthenticated(true);
-      return { success: true, message: '' };
+      return cognitoUser;
     } catch (error) {
-      return {
-        success: false,
-        message: 'LOGIN FAIL',
-      };
+      return undefined;
     }
   };
 

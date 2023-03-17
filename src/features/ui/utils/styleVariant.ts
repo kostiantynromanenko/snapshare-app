@@ -1,1 +1,1 @@
-export type StyleVariant = 'primary' | 'secondary' | 'error';
+export type StyleVariant = 'primary' | 'secondary' | 'error' | 'white';

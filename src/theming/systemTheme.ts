@@ -1,11 +1,11 @@
 import { Theme } from '@emotion/react';
 import { createTheme } from '@features/theme';
 
-export const defaultTheme: Theme = createTheme({
+export const systemTheme: Theme = createTheme({
   palette: {
     primary: {
-      main: '#3a98b9',
-      contrastText: '#ffffff',
+      main: '#00a97f',
+      contrastText: 'rgb(10, 25, 30)',
     },
     secondary: {
       main: '#fff1dc',
@@ -16,7 +16,7 @@ export const defaultTheme: Theme = createTheme({
       contrastText: '#ffffff',
     },
     text: {
-      primary: 'rgba(0, 0, 0, 0.87)',
+      primary: 'rgb(10, 25, 30)',
       disabled: 'rgba(0, 0, 0, 0.35)',
     },
     common: {

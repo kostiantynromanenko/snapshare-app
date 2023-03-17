@@ -5,7 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import { ProvideAuth } from '@features/auth/useAuth';
 import App from './App';
 import { awsAuthConfig } from './config/auth';
-import { defaultTheme, GlobalStyles } from './theming';
+import { systemTheme, GlobalStyles } from './theming';
 
 Amplify.configure({ Auth: awsAuthConfig });
 
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <ProvideAuth>
-      <ThemeProvider theme={defaultTheme}>
+      <ThemeProvider theme={systemTheme}>
         <GlobalStyles />
         <App />
       </ThemeProvider>
