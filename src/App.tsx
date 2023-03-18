@@ -1,28 +1,16 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Loader } from '@features/ui';
-import { makePrivate, useAuth } from '@features/auth';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SignIn } from '@features/sign-in';
+import { Home } from '@features/home';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: makePrivate(<div>Hello</div>),
-  },
-  {
-    path: 'login',
-    element: <SignIn />,
-  },
-]);
-
-const App = (): JSX.Element => {
-  const { isLoading } = useAuth();
-
-  if (isLoading) {
-    return <Loader size={100} />;
-  }
-
-  return <RouterProvider router={router} />;
-};
+const App = (): JSX.Element => (
+  <BrowserRouter>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="login" element={<SignIn />} />
+      <Route path="*" element={<p>Page Not Found</p>} />
+    </Routes>
+  </BrowserRouter>
+);
 
 export default App;

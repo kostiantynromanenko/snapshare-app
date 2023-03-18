@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SpinnerProps } from '@features/ui';
 import { getVariantColor, getVariantTextColor } from '../utils/getColors';
 import { ButtonProps } from './Button';
 
@@ -7,7 +8,7 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
-  padding: ${({ theme }) => theme.spacing(1.5, 2)};
+  padding: ${({ theme }) => theme.spacing(2)};
   border: none;
   border-radius: 6px;
   background-color: ${getVariantColor()};
@@ -15,7 +16,6 @@ export const Button = styled.button<ButtonProps>`
   font: inherit;
   font-weight: 500;
   text-transform: uppercase;
-  line-height: 1.5;
 
   &:disabled {
     opacity: ${({ theme }) => theme.palette.actions.disabledOpacity};
@@ -32,9 +32,9 @@ export const Button = styled.button<ButtonProps>`
   }
 `;
 
-export const ButtonSpinner = styled.div`
+export const ButtonSpinner = styled.div<SpinnerProps>`
   display: inline-block;
   margin-left: ${({ theme }) => theme.spacing()};
-  border-top-color: ${getVariantTextColor()};
-  border-bottom-color: ${getVariantTextColor()};
+  border-top-color: ${getVariantTextColor()} !important;
+  border-bottom-color: ${getVariantTextColor()} !important;
 `;

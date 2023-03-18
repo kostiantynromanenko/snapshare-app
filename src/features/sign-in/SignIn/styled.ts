@@ -14,7 +14,7 @@ export const Container = styled.main`
   }
 `;
 
-export const BackgroundImageArea = styled.div`
+export const ImageSection = styled.div`
   grid-area: bg-image;
   background-image: url(https://source.unsplash.com/random);
   background-color: ${({ theme }) => theme.palette.primary.main};
@@ -23,7 +23,7 @@ export const BackgroundImageArea = styled.div`
   background-position: center;
 `;
 
-export const FormArea = styled.div`
+export const Content = styled.div`
   grid-area: form;
   display: flex;
   flex-direction: column;

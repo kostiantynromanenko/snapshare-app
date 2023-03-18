@@ -1,6 +1,6 @@
 import React from 'react';
+import { StyledSpinner } from './styled';
 import { StyleVariant } from '../utils/styleVariant';
-import { Spinner as StyledSpinner } from './styled';
 
 export interface SpinnerProps {
   className?: string;

@@ -12,11 +12,11 @@ Amplify.configure({ Auth: awsAuthConfig });
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ProvideAuth>
-      <ThemeProvider theme={systemTheme}>
-        <GlobalStyles />
+    <ThemeProvider theme={systemTheme}>
+      <GlobalStyles />
+      <ProvideAuth>
         <App />
-      </ThemeProvider>
-    </ProvideAuth>
+      </ProvideAuth>
+    </ThemeProvider>
   </React.StrictMode>,
 );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Spinner } from '@features/ui';
 import { Button as StyledButton, ButtonSpinner } from './styled';
 import { StyleVariant } from '../utils/styleVariant';
+import { Spinner } from '@features/ui';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: React.ReactNode;
