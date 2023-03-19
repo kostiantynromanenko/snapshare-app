@@ -2,7 +2,7 @@ import React from 'react';
 import { Spinner } from '@features/ui';
 import { ThemeVariant } from '@features/theme';
 import { Button as StyledButton, ButtonSpinner } from './styled';
-import { getComponentClass } from '@features/ui/utils/classnames';
+import { getComponentClass } from '../utils/classnames';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: React.ReactNode;
