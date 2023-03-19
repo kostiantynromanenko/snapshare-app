@@ -1,2 +1,2 @@
-export { GlobalStyles } from './GlobalStyles';
-export { systemTheme } from './systemTheme';
+export { GlobalStyles } from './globalStyles';
+export { defaultTheme } from './defaultTheme';

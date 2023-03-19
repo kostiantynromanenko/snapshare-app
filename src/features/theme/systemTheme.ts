@@ -1,7 +1,4 @@
-import { Theme } from '@emotion/react';
-import { createTheme } from '@features/theme';
-
-export const systemTheme: Theme = createTheme({
+export const systemTheme = {
   palette: {
     primary: {
       main: '#00a97f',
@@ -39,4 +36,4 @@ export const systemTheme: Theme = createTheme({
       800: '#424242',
     },
   },
-});
+};

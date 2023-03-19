@@ -1,7 +1,6 @@
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
-import { SpinnerProps } from './Spinner';
+import styled, { keyframes } from 'styled-components';
 import { getVariantColor } from '../utils/getColors';
+import { SpinnerProps } from './Spinner';
 
 const spin = keyframes`
   0% {
@@ -12,7 +11,7 @@ const spin = keyframes`
   }
 `;
 
-export const Spinner = styled.div<SpinnerProps>`
+export const StyledSpinner = styled.div<SpinnerProps>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   border: ${({ thickness }) => thickness}px solid;

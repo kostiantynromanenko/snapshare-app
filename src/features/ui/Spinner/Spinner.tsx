@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleVariant } from '../utils/styleVariant';
-import { Spinner as StyledSpinner } from './styled';
+import { ThemeVariant } from '@features/theme';
+import { StyledSpinner } from './styled';
 
 export interface SpinnerProps {
-  variant?: StyleVariant;
+  variant?: ThemeVariant;
   size?: number;
   thickness?: number;
 }

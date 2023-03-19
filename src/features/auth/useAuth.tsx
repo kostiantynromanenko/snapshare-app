@@ -4,15 +4,15 @@ import { CognitoUser } from 'amazon-cognito-identity-js';
 
 interface AuthResult {
   success: boolean;
-  message: string;
+  errorMessage?: string;
 }
 
 interface AuthContextState {
   isLoading: boolean;
   isAuthenticated: boolean;
   username: string;
-  signIn: (username: string, password: string) => Promise<CognitoUser | undefined>;
-  signOut: () => void;
+  signIn: (username: string, password: string) => Promise<AuthResult>;
+  signOut: () => Promise<AuthResult>;
 }
 
 type ProvideAuthProps = {
@@ -42,34 +42,44 @@ const useProvideAuth = (): AuthContextState => {
       });
   }, []);
 
-  const signIn = async (uname: string, password: string): Promise<CognitoUser | undefined> => {
+  const signIn = async (uname: string, password: string): Promise<AuthResult> => {
     try {
-      let cognitoUser: CognitoUser = await Auth.signIn(uname, password);
+      const cognitoUser: CognitoUser = await Auth.signIn(uname, password);
 
       if (cognitoUser.challengeName === 'NEW_PASSWORD_REQUIRED') {
-        cognitoUser = await Auth.completeNewPassword(cognitoUser, password, {
+        await Auth.completeNewPassword(cognitoUser, password, {
           preferred_username: uname,
         });
       }
 
       setUsername(uname);
       setIsAuthenticated(true);
-      return cognitoUser;
-    } catch (error) {
-      return undefined;
+
+      return {
+        success: true,
+      };
+    } catch (error: any) {
+      return {
+        success: false,
+        errorMessage: error.message,
+      };
     }
   };
 
   const signOut = async (): Promise<AuthResult> => {
     try {
       await Auth.signOut();
+
       setUsername('');
       setIsAuthenticated(false);
-      return { success: true, message: '' };
-    } catch (error) {
+
+      return {
+        success: true,
+      };
+    } catch (error: any) {
       return {
         success: false,
-        message: 'LOGOUT FAIL',
+        errorMessage: error.message,
       };
     }
   };

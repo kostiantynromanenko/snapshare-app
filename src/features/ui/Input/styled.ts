@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { InputProps } from './Input';
 
 export const Input = styled.input<InputProps>`
@@ -14,7 +14,7 @@ export const Input = styled.input<InputProps>`
 
   &:disabled {
     background-color: ${({ theme }) => theme.palette.actions.disabledBackground};
-    color: ${({ theme }) => theme.palette.actions.disabled};
+    color: ${({ theme }) => theme.palette.text.disabled};
     cursor: not-allowed;
   }
 `;
