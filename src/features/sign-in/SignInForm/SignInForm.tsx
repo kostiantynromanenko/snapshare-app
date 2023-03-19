@@ -58,12 +58,23 @@ export const SignInForm = (): JSX.Element => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {(formik) => (
+      {({ isSubmitting, ...formik }) => (
         <Form onSubmit={formik.handleSubmit}>
-          <ErrorMessage message={errorMessage} align="center" />
-          <TextField name="username" placeholder="Enter your username or email" fullWidth />
-          <TextField type="password" name="password" placeholder="Enter you password" fullWidth />
-          <Button type="submit" fullWidth loading={formik.isSubmitting}>
+          {errorMessage && <ErrorMessage message={errorMessage} align="center" />}
+          <TextField
+            name="username"
+            placeholder="Enter your username or email"
+            disabled={isSubmitting}
+            fullWidth
+          />
+          <TextField
+            type="password"
+            name="password"
+            placeholder="Enter you password"
+            disabled={isSubmitting}
+            fullWidth
+          />
+          <Button type="submit" fullWidth loading={isSubmitting}>
             Sign In
           </Button>
         </Form>

@@ -1,7 +1,4 @@
-import { createTheme } from '@features/theme';
-import { DefaultTheme } from 'styled-components';
-
-export const systemTheme: DefaultTheme = createTheme({
+export const systemTheme = {
   palette: {
     primary: {
       main: '#00a97f',
@@ -39,4 +36,4 @@ export const systemTheme: DefaultTheme = createTheme({
       800: '#424242',
     },
   },
-});
+};

@@ -5,14 +5,14 @@ import { ProvideAuth } from '@features/auth/useAuth';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
 import { awsAuthConfig } from './config/auth';
-import { systemTheme, GlobalStyles } from './theming';
+import { defaultTheme, GlobalStyles } from './theming';
 
 Amplify.configure({ Auth: awsAuthConfig });
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={systemTheme}>
+    <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
       <ProvideAuth>
         <App />

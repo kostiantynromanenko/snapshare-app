@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
+export const Container = styled.div`
   display: grid;
   grid-template-columns: 450px auto;
   grid-template-rows: auto 60px;
   grid-template-areas:
-    'form bg-image'
+    'content bg-image'
     'footer footer';
   height: 100vh;
 
@@ -23,8 +23,8 @@ export const ImageSection = styled.div`
   background-position: center;
 `;
 
-export const Content = styled.div`
-  grid-area: form;
+export const Content = styled.main`
+  grid-area: content;
   display: flex;
   flex-direction: column;
   align-items: center;

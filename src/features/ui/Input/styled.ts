@@ -14,7 +14,7 @@ export const Input = styled.input<InputProps>`
 
   &:disabled {
     background-color: ${({ theme }) => theme.palette.actions.disabledBackground};
-    color: ${({ theme }) => theme.palette.actions.disabled};
+    color: ${({ theme }) => theme.palette.text.disabled};
     cursor: not-allowed;
   }
 `;

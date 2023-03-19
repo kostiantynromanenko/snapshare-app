@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
-import { StyleVariant } from './styleVariant';
+import { ThemeVariant } from '@features/theme';
 
-type GetColorArgs = { variant?: StyleVariant; theme: DefaultTheme };
+type GetColorArgs = { variant?: ThemeVariant; theme: DefaultTheme };
 
 export const getVariantColor =
   () =>
