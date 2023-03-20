@@ -59,7 +59,7 @@ export const SignInForm = (): JSX.Element => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting, ...formik }) => (
-        <Form onSubmit={formik.handleSubmit}>
+        <Form onSubmit={formik.handleSubmit} role="form">
           {errorMessage && <ErrorMessage message={errorMessage} align="center" />}
           <TextField
             name="username"

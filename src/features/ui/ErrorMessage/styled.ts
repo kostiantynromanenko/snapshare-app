@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { ErrorMessageProps } from '@features/ui';
 
-export const ErrorMessage = styled.span<Omit<ErrorMessageProps, 'message'>>`
+interface StyledErrorMessageProps {
+  readonly align: 'left' | 'right' | 'center';
+}
+
+export const StyledErrorMessage = styled.span<StyledErrorMessageProps>`
   display: inline-block;
   margin-top: ${({ theme }) => theme.spacing()};
   text-align: ${({ align }) => align};

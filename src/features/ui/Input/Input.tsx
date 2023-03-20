@@ -1,23 +1,37 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Input as StyledInput } from './styled';
+import { StyledInput } from './styled';
+import { getComponentClass } from '../utils/classnames';
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   fullWidth?: boolean;
 };
 
-export const Input = ({ value: propsValue, onChange, ...props }: InputProps): JSX.Element => {
+export const Input = ({
+  value: propsValue,
+  onChange,
+  className,
+  ...props
+}: InputProps): JSX.Element => {
   const [value, setValue] = useState<typeof propsValue>('');
 
   useEffect(() => {
-    setValue(propsValue);
+    setValue(propsValue || '');
   }, [propsValue]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
+
     if (onChange) {
       onChange(event);
     }
   };
 
-  return <StyledInput value={value} onChange={handleChange} {...props} />;
+  return (
+    <StyledInput
+      value={value}
+      onChange={handleChange}
+      className={getComponentClass('input', className)}
+      {...props}
+    />
+  );
 };

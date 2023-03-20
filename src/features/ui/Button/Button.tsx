@@ -1,7 +1,7 @@
 import React from 'react';
-import { Spinner } from '@features/ui';
 import { ThemeVariant } from '@features/theme';
-import { Button as StyledButton, ButtonSpinner } from './styled';
+import { Spinner } from '@features/ui';
+import { StyledButton, ButtonSpinner } from './styled';
 import { getComponentClass } from '../utils/classnames';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -12,18 +12,22 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const Button = ({
+  type,
   className,
   children,
   disabled,
   loading,
+  variant = 'primary',
   ...props
 }: ButtonProps): JSX.Element => (
   <StyledButton
-    {...props}
-    className={getComponentClass('btn', className)}
+    type={type || 'button'}
+    className={getComponentClass('btn', className, variant)}
+    variant={variant}
     disabled={disabled || loading}
+    {...props}
   >
     {children}
-    {loading && <ButtonSpinner as={Spinner} variant={props.variant} size={20} thickness={3} />}
+    {loading && <ButtonSpinner as={Spinner} variant={variant} size={20} thickness={3} />}
   </StyledButton>
 );

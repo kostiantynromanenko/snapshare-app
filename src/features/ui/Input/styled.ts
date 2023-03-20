@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { InputProps } from './Input';
 
-export const Input = styled.input<InputProps>`
+export const StyledInput = styled.input<InputProps>`
   display: block;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   padding: ${({ theme }) => theme.spacing(1.5, 2)};

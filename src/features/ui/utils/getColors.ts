@@ -1,14 +1,14 @@
 import { DefaultTheme } from 'styled-components';
 import { ThemeVariant } from '@features/theme';
 
-type GetColorArgs = { variant?: ThemeVariant; theme: DefaultTheme };
+type GetColorArgs = { variant: ThemeVariant; theme: DefaultTheme };
 
 export const getVariantColor =
   () =>
-  ({ variant = 'primary', theme }: GetColorArgs) =>
+  ({ variant, theme }: GetColorArgs) =>
     theme.palette[variant].main;
 
 export const getVariantTextColor =
   () =>
-  ({ variant = 'primary', theme }: GetColorArgs) =>
+  ({ variant, theme }: GetColorArgs) =>
     theme.palette[variant].contrastText;

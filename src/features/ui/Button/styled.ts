@@ -1,9 +1,13 @@
 import styled from 'styled-components';
-import { SpinnerProps } from '@features/ui';
+import { ThemeVariant } from '@features/theme';
 import { getVariantColor, getVariantTextColor } from '../utils/getColors';
-import { ButtonProps } from './Button';
 
-export const Button = styled.button<ButtonProps>`
+interface StyledButtonProps {
+  readonly fullWidth?: boolean;
+  readonly variant: ThemeVariant;
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +36,11 @@ export const Button = styled.button<ButtonProps>`
   }
 `;
 
-export const ButtonSpinner = styled.div<SpinnerProps>`
+interface ButtonSpinnerProps {
+  readonly variant: ThemeVariant;
+}
+
+export const ButtonSpinner = styled.div<ButtonSpinnerProps>`
   display: inline-block;
   margin-left: ${({ theme }) => theme.spacing()};
   border-top-color: ${getVariantTextColor()} !important;

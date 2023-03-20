@@ -1,6 +1,12 @@
 import styled, { keyframes } from 'styled-components';
+import { ThemeVariant } from '@features/theme';
 import { getVariantColor } from '../utils/getColors';
-import { SpinnerProps } from './Spinner';
+
+type StyledSpinnerProps = {
+  variant: ThemeVariant;
+  size: number;
+  thickness: number;
+};
 
 const spin = keyframes`
   0% {
@@ -11,7 +17,7 @@ const spin = keyframes`
   }
 `;
 
-export const StyledSpinner = styled.div<SpinnerProps>`
+export const StyledSpinner = styled.div<StyledSpinnerProps>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   border: ${({ thickness }) => thickness}px solid;
