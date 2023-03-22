@@ -1,0 +1,31 @@
+name: aws-deployment
+on:
+  push:
+    branches: [ develop ]
+jobs:
+  build:
+    env:
+      VITE_AUTH_REGION: ${{ secrets.AWS_REGION }}
+      VITE_AUTH_USER_POOL_ID: ${{ secrets.AWS_COGNITO_USER_POOL_ID }}
+      VITE_AUTH_USER_POOL_WEB_CLIENT_ID: ${{ secrets.AWS_COGNITO_APP_ID }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Install dependencies
+        run: npm install
+      - name: Verify code quality
+        run: npm run lint
+      - name: Run tests
+        run: npm test
+      - name: Build app
+        run: npm run build
+      - name: Deploy app build to S3 bucket
+        run: aws s3 sync ./dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
+      - name: Invalidate cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"

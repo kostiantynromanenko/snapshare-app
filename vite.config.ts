@@ -8,6 +8,7 @@ export default defineConfig({
     global: {},
   },
   resolve: {
+    // fix the issue with @aws-amplify
     alias: {
       './runtimeConfig': './runtimeConfig.browser',
     },
