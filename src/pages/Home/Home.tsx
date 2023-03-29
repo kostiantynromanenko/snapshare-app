@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { makePrivate, useAuth } from '@features/auth';
 import { Loader } from '@features/ui';
 import { Header } from '@features/layout';
@@ -15,7 +16,9 @@ export const Home = (): JSX.Element => {
     <Container>
       <Header />
       <Sidebar />
-      <Content />
+      <Content>
+        <Outlet />
+      </Content>
       <Footer />
     </Container>,
   );

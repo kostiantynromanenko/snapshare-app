@@ -1,1 +1,1 @@
-export { SignIn } from './SignIn/SignIn';
+export { SignInForm } from './SignInForm/SignInForm';
