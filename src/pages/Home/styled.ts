@@ -18,6 +18,7 @@ export const Sidebar = styled.aside`
 
 export const Content = styled.main`
   grid-area: content;
+  padding: ${({ theme }) => theme.spacing(3)};
 `;
 
 export const Footer = styled.footer`

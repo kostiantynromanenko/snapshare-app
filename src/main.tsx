@@ -18,7 +18,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <GlobalStyles />
           <App />
         </ThemeProvider>
-        ;
       </BrowserRouter>
     </ProvideAuth>
   </React.StrictMode>,

@@ -74,7 +74,7 @@ export const SignInForm = (): JSX.Element => {
             disabled={isSubmitting}
             fullWidth
           />
-          <Button type="submit" fullWidth loading={isSubmitting}>
+          <Button type="submit" loading={isSubmitting} fullWidth>
             Sign In
           </Button>
         </Form>
