@@ -15,7 +15,7 @@ describe('Button', () => {
     expect(button).toHaveAttribute('type', 'button');
     expect(button).toHaveClass('ssa-btn ssa-btn_primary');
     expect(button).toBeEnabled();
-    expect(within(button).queryByRole('alert')).toBeNull();
+    expect(within(button).queryByRole('alert')).not.toBeInTheDocument();
     expect(button).toHaveStyle({
       width: 'auto',
     });
