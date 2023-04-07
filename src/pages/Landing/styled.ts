@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { LanguageSwitcher } from '@features/i18n';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -10,7 +12,7 @@ export const Container = styled.div`
   background-size: cover;
 `;
 
-export const Content = styled.main`
+export const ContentBox = styled.main`
   display: grid;
   grid-template-columns: 2fr 2fr;
   overflow: hidden;
@@ -34,6 +36,11 @@ export const Content = styled.main`
   }
 `;
 
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ImageSection = styled.div`
   background-image: url(/images/sign-in-form-bg.png);
   background-color: ${({ theme }) => theme.palette.primary.main};
@@ -44,4 +51,10 @@ export const ImageSection = styled.div`
   ${({ theme }) => theme.breakpoints.down('mobile')} {
     height: 100%;
   }
+`;
+
+export const LangSwitcher = styled(LanguageSwitcher)`
+  position: absolute;
+  top: 24px;
+  right: 24px;
 `;

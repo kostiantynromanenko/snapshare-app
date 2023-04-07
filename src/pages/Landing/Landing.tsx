@@ -1,12 +1,17 @@
 import React from 'react';
 import { SignInForm } from '@features/sign-in';
-import { Container, Content, ImageSection } from './styled';
+import { Copyright } from '@features/layout';
+import { Container, Content, ContentBox, ImageSection, LangSwitcher } from './styled';
 
 export const Landing = (): JSX.Element => (
   <Container>
-    <Content>
-      <SignInForm />
+    <LangSwitcher />
+    <ContentBox>
+      <Content>
+        <SignInForm />
+        <Copyright />
+      </Content>
       <ImageSection />
-    </Content>
+    </ContentBox>
   </Container>
 );

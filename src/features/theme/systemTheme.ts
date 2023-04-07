@@ -2,7 +2,7 @@ export const systemTheme = {
   palette: {
     primary: {
       main: '#FBB351',
-      contrastText: 'rgb(10, 25, 30)'
+      contrastText: '#06050F'
     },
     secondary: {
       main: '#fff1dc',
