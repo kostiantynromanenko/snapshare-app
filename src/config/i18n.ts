@@ -2,6 +2,25 @@ import i18n from 'i18next';
 import I18NextHttpBackend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { IconCode } from '@features/ui';
+
+interface LanguageConfig {
+  readonly lang: string;
+
+  // refers to Icon#code property, used to render an icon for language switcher
+  readonly icon: IconCode;
+}
+
+export const AVAILABLE_LANGUAGES: LanguageConfig[] = [
+  {
+    lang: 'en',
+    icon: 'gb-flag'
+  },
+  {
+    lang: 'ua',
+    icon: 'ua-flag'
+  }
+];
 
 i18n
   .use(LanguageDetector)
@@ -20,7 +39,5 @@ i18n
       escapeValue: false
     }
   });
-
-export const availableLanguages = ['en', 'ua'];
 
 export default i18n;
