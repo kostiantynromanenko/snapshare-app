@@ -20,6 +20,6 @@ export const Home = (): JSX.Element => {
         <Outlet />
       </Content>
       <Footer />
-    </Container>,
+    </Container>
   );
 };

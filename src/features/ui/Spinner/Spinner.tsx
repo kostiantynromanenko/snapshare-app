@@ -14,7 +14,7 @@ export const Spinner = ({
   variant = 'primary',
   size = 64,
   thickness = 8,
-  className,
+  className
 }: SpinnerProps): JSX.Element => (
   <StyledSpinner
     className={getComponentClass('spinner', className, variant)}

@@ -14,7 +14,7 @@ describe('Spinner', () => {
     expect(spinner).toHaveStyle({
       width: '64px',
       height: '64px',
-      'border-width': '8px',
+      'border-width': '8px'
     });
   });
 
@@ -31,7 +31,7 @@ describe('Spinner', () => {
     expect(spinner).toHaveStyle({
       width: `${size}px`,
       height: `${size}px`,
-      'border-width': `${thickness}px`,
+      'border-width': `${thickness}px`
     });
   });
 });
