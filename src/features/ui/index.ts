@@ -12,6 +12,6 @@ export type {
   TextFieldProps,
   LabelProps,
   SpinnerProps,
-  ErrorMessageProps,
+  ErrorMessageProps
 };
 export { Input, Button, ErrorMessage, TextField, Label, Loader, Spinner };

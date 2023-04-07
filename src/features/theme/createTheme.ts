@@ -12,9 +12,9 @@ interface ThemeOptions {
 export const createTheme = ({
   palette,
   spacing,
-  breakpoints,
+  breakpoints
 }: ThemeOptions): Readonly<DefaultTheme> => ({
   palette: createPalette(palette),
   breakpoints: createBreakpoints(breakpoints),
-  spacing: createSpacing(spacing),
+  spacing: createSpacing(spacing)
 });

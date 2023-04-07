@@ -15,7 +15,7 @@ const defaultBreakpointsValues = {
   mobile: 600,
   tablet: 768,
   laptop: 992,
-  desktop: 1200,
+  desktop: 1200
 };
 
 export const createBreakpoints = (options?: BreakpointsOptions): Breakpoints => {
@@ -24,7 +24,7 @@ export const createBreakpoints = (options?: BreakpointsOptions): Breakpoints => 
   return {
     values,
     unit,
-    up: (key: BreakpointKey) => `@media (max-width: ${values[key]}${unit})`,
-    down: (key: BreakpointKey) => `@media (min-width: ${values[key] - 0.05}${unit})`,
+    up: (key: BreakpointKey) => `@media (min-width: ${values[key]}${unit})`,
+    down: (key: BreakpointKey) => `@media (max-width: ${values[key] - 0.05}${unit})`
   };
 };

@@ -17,7 +17,7 @@ describe('Button', () => {
     expect(button).toBeEnabled();
     expect(within(button).queryByRole('alert')).not.toBeInTheDocument();
     expect(button).toHaveStyle({
-      width: 'auto',
+      width: 'auto'
     });
   });
 
@@ -49,7 +49,7 @@ describe('Button', () => {
 
     // then
     expect(button).toHaveStyle({
-      width: '100%',
+      width: '100%'
     });
   });
 

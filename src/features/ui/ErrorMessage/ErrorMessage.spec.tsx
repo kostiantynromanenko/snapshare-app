@@ -15,7 +15,7 @@ describe('ErrorMessage', () => {
     // then
     expect(errorMessage).toHaveClass('ssa-error');
     expect(errorMessage).toHaveStyle({
-      'text-align': 'left',
+      'text-align': 'left'
     });
   });
 
@@ -29,7 +29,7 @@ describe('ErrorMessage', () => {
 
     // then
     expect(errorMessage).toHaveStyle({
-      'text-align': align,
+      'text-align': align
     });
   });
 });

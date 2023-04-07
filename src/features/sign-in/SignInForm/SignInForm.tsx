@@ -19,7 +19,7 @@ export const SignInForm = (): JSX.Element => {
 
   const initialValues: SignInFormValues = {
     username: '',
-    password: '',
+    password: ''
   };
 
   const validationSchema = Yup.object({
@@ -27,17 +27,15 @@ export const SignInForm = (): JSX.Element => {
       .test(
         'username-validator',
         'Enter valid username/email',
-        (value = '') => !(!isValidEmail(value) && !isValidUsername(value)),
+        (value = '') => !(!isValidEmail(value) && !isValidUsername(value))
       )
       .required('Enter username/email'),
-    password: Yup.string()
-      .matches(passwordRegex, 'Enter valid password')
-      .required('Enter password'),
+    password: Yup.string().matches(passwordRegex, 'Enter valid password').required('Enter password')
   });
 
   const handleSubmit = async (
     { username, password }: SignInFormValues,
-    { setSubmitting }: FormikHelpers<SignInFormValues>,
+    { setSubmitting }: FormikHelpers<SignInFormValues>
   ): Promise<void> => {
     setErrorMessage('');
 

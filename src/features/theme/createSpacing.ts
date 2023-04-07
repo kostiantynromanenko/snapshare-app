@@ -19,7 +19,7 @@ export const createSpacing =
       if (argsInput.length > 4) {
         // eslint-disable-next-line no-console
         console.error(
-          `Too many arguments provided, expected between 0 and 4, got ${argsInput.length}`,
+          `Too many arguments provided, expected between 0 and 4, got ${argsInput.length}`
         );
       }
     }

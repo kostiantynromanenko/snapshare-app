@@ -48,7 +48,7 @@ const useProvideAuth = (): AuthContextState => {
 
       if (cognitoUser.challengeName === 'NEW_PASSWORD_REQUIRED') {
         await Auth.completeNewPassword(cognitoUser, password, {
-          preferred_username: uname,
+          preferred_username: uname
         });
       }
 
@@ -56,12 +56,12 @@ const useProvideAuth = (): AuthContextState => {
       setIsAuthenticated(true);
 
       return {
-        success: true,
+        success: true
       };
     } catch (error: any) {
       return {
         success: false,
-        errorMessage: error.message,
+        errorMessage: error.message
       };
     }
   };
@@ -74,12 +74,12 @@ const useProvideAuth = (): AuthContextState => {
       setIsAuthenticated(false);
 
       return {
-        success: true,
+        success: true
       };
     } catch (error: any) {
       return {
         success: false,
-        errorMessage: error.message,
+        errorMessage: error.message
       };
     }
   };
@@ -89,7 +89,7 @@ const useProvideAuth = (): AuthContextState => {
     isAuthenticated,
     username,
     signIn,
-    signOut,
+    signOut
   };
 };
 
