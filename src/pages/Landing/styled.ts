@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-image: url(src/assets/images/landing-bg.png);
+  background-image: url(/images/landing-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -35,7 +35,7 @@ export const Content = styled.main`
 `;
 
 export const ImageSection = styled.div`
-  background-image: url(src/assets/images/sign-in-form-bg.png);
+  background-image: url(/images/sign-in-form-bg.png);
   background-color: ${({ theme }) => theme.palette.primary.main};
   background-repeat: no-repeat;
   background-size: cover;
