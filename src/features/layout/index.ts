@@ -1,3 +1,4 @@
-import { Header } from './Header/Header';
+import { Header } from './Header';
+import { Copyright } from './Copyright';
 
-export { Header };
+export { Header, Copyright };

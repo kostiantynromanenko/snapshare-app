@@ -4,8 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Amplify } from 'aws-amplify';
 import { ProvideAuth } from '@features/auth';
-import { defaultTheme, GlobalStyles } from './theming';
 import { awsAuthConfig } from './config/auth';
+import './config/i18n';
+import { defaultTheme, GlobalStyles } from './theming';
 import App from './App';
 
 Amplify.configure({ Auth: awsAuthConfig });
