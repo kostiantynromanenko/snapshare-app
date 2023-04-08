@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconImg } from '@features/ui/Icon/styled';
 import { PropsWithClassName } from '@features/utils';
+import { getComponentClass } from '../utils/classnames';
 import { IconCode, ICONS } from './icons';
 
 export type IconProps = {
@@ -17,5 +18,12 @@ export const Icon = ({ code, size = 24, className }: IconProps): JSX.Element => 
 
   const { path, alt } = icon;
 
-  return <IconImg src={`/icons/${path}`} alt={alt} size={size} className={className} />;
+  return (
+    <IconImg
+      src={`/icons/${path}`}
+      alt={alt}
+      $size={size}
+      className={getComponentClass('icon', className)}
+    />
+  );
 };

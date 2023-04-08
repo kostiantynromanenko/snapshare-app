@@ -2,11 +2,11 @@ import styled, { keyframes } from 'styled-components';
 import { ThemeVariant } from '@features/theme';
 import { getVariantColor } from '../utils/getColors';
 
-type StyledSpinnerProps = {
-  variant: ThemeVariant;
-  size: number;
-  thickness: number;
-};
+interface StyledSpinnerProps {
+  readonly variant: ThemeVariant;
+  readonly size: number;
+  readonly thickness: number;
+}
 
 const spin = keyframes`
   0% {

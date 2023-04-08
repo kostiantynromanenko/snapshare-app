@@ -1,10 +1,10 @@
 import React from 'react';
 import { ThemeVariant } from '@features/theme';
+import { PropsWithClassName } from '@features/utils';
 import { getComponentClass } from '../utils/classnames';
 import { StyledSpinner } from './styled';
 
-export interface SpinnerProps {
-  className?: string;
+export interface SpinnerProps extends PropsWithClassName {
   variant?: ThemeVariant;
   size?: number;
   thickness?: number;
