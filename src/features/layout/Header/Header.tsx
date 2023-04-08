@@ -1,18 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@features/auth';
-import { Header as StyledHeader, LogoutButton } from './styled';
+import { useOktaAuth } from '@okta/okta-react';
+import { StyledHeader, LogoutButton } from './styled';
 
 export const Header = (): JSX.Element => {
-  const { signOut } = useAuth();
-  const navigate = useNavigate();
+  const { oktaAuth } = useOktaAuth();
 
   const handleSignOut = async (): Promise<void> => {
-    const result = await signOut();
-
-    if (result.success) {
-      navigate('/login');
-    }
+    await oktaAuth.signOut();
   };
 
   return (

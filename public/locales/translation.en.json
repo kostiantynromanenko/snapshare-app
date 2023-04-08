@@ -1,3 +1,18 @@
 {
-  "title": "Welcome to SnapShare!"
+  "title": "Welcome to SnapShare!",
+  "validation": {
+    "email.invalid": "Please enter a valid email address",
+    "email.required": "Email address cannot be empty",
+    "password.invalid": "Please enter a valid password. Passwords must contain at least 8 characters, including a combination of letters, numbers, and special characters",
+    "password.required": "Password field cannot be empty"
+  },
+  "error": {
+    "invalid.credentials": "Incorrect email or password",
+    "auth.service": "Oops! Something went wrong during the login process. Please try again later"
+  },
+  "login": {
+    "submit": "Sign in",
+    "email.placeholder": "Enter your email",
+    "password.placeholder": "Enter you password"
+  }
 }

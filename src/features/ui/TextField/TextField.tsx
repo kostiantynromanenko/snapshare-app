@@ -1,7 +1,7 @@
 import React from 'react';
-import { useField, FieldHookConfig } from 'formik';
+import { FieldHookConfig, useField } from 'formik';
 import { ErrorMessage, Input, InputProps, Label } from '@features/ui';
-import { getComponentClass } from '@features/ui/utils/classnames';
+import { getComponentClass } from '../utils/classnames';
 
 export type TextFieldProps = InputProps &
   FieldHookConfig<string> & {

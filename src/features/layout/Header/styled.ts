@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button } from '@features/ui';
 
-export const Header = styled.header`
+export const StyledHeader = styled.header`
   grid-area: header;
   display: flex;
   justify-content: end;
