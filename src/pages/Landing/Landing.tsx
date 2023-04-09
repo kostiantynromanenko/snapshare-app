@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignInForm } from '@features/sign-in';
+import { LoginForm } from '@features/login';
 import { Copyright } from '@features/layout';
 import { Container, Content, ContentBox, ImageSection, LangSwitcher } from './styled';
 
@@ -8,7 +8,7 @@ export const Landing = (): JSX.Element => (
     <LangSwitcher />
     <ContentBox>
       <Content>
-        <SignInForm />
+        <LoginForm />
         <Copyright />
       </Content>
       <ImageSection />

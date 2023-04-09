@@ -13,7 +13,8 @@
   "login": {
     "submit": "Sign in",
     "email.placeholder": "Enter your email",
-    "password.placeholder": "Enter you password"
+    "password.placeholder": "Enter you password",
+    "google": "Continue with Google"
   },
   "copyright": "Copyright \u00A9 {{currentYear}} h1totsu"
 }

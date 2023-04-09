@@ -3,3 +3,5 @@ export const OKTA_CONFIG = {
   clientId: import.meta.env.VITE_OKTA_CLIENT_ID,
   redirectUri: `${window.location.origin}/login/callback`
 };
+
+export const OKTA_GOOGLE_IDP = import.meta.env.VITE_OKTA_GOOGLE_IDP;

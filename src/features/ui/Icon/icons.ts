@@ -1,4 +1,4 @@
-export type IconCode = 'ua-flag' | 'gb-flag';
+export type IconCode = 'ua-flag' | 'gb-flag' | 'google';
 
 export interface IconItem {
   readonly code: IconCode;
@@ -16,5 +16,10 @@ export const ICONS: IconItem[] = [
     code: 'gb-flag',
     path: 'gb-flag.svg',
     alt: 'Icon - flag of Great Britain'
+  },
+  {
+    code: 'google',
+    path: 'google.svg',
+    alt: 'Icon - Google logo'
   }
 ];
