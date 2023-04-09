@@ -22,6 +22,12 @@ export const AVAILABLE_LANGUAGES: LanguageConfig[] = [
   }
 ];
 
+declare module 'i18next' {
+  interface CustomTypeOptions {
+    returnNull: false;
+  }
+}
+
 i18n
   .use(LanguageDetector)
   .use(I18NextHttpBackend)
@@ -37,7 +43,8 @@ i18n
     },
     interpolation: {
       escapeValue: false
-    }
+    },
+    returnNull: false
   });
 
 export default i18n;

@@ -1,10 +1,10 @@
-import { Input, InputProps } from './Input/Input';
-import { Button, ButtonProps } from './Button/Button';
-import { TextField, TextFieldProps } from './TextField/TextField';
-import { Label, LabelProps } from './Label/Label';
-import { ErrorMessage, ErrorMessageProps } from './ErrorMessage/ErrorMessage';
-import { Loader } from './Loader/Loader';
-import { Spinner, SpinnerProps } from './Spinner/Spinner';
+import { Input, InputProps } from './Input';
+import { Button, ButtonProps } from './Button';
+import { TextField, TextFieldProps } from './TextField';
+import { Label, LabelProps } from './Label';
+import { ErrorMessage, ErrorMessageProps } from './ErrorMessage';
+import { Loader } from './Loader';
+import { Spinner, SpinnerProps } from './Spinner';
 import { Icon, IconCode, IconProps } from './Icon';
 
 export type {

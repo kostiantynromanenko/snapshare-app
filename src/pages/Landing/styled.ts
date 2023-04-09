@@ -39,6 +39,9 @@ export const ContentBox = styled.main`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: ${({ theme }) => theme.spacing(4)};
 `;
 
 export const ImageSection = styled.div`

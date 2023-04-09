@@ -1,50 +1,59 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Formik, FormikHelpers } from 'formik';
+import { useOktaAuth } from '@okta/okta-react';
+import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
-import { isValidEmail, isValidUsername, passwordRegex } from '@features/validation';
+import { PASSWORD_REGEX } from '@features/validation';
 import { Button, ErrorMessage, TextField } from '@features/ui';
-import { useAuth } from '@features/auth';
+import { OktaErrorCodes, OktaErrorResponse } from '@features/auth';
 import { Form } from './styled';
 
-type SignInFormValues = {
-  username: string;
+interface SignInFormValues {
+  email: string;
   password: string;
-};
+}
 
 export const SignInForm = (): JSX.Element => {
-  const { signIn } = useAuth();
-  const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = useState('');
+  const { oktaAuth } = useOktaAuth();
+  const { t } = useTranslation();
+  const [errorMessageKey, setErrorMessageKey] = useState('');
 
   const initialValues: SignInFormValues = {
-    username: '',
+    email: '',
     password: ''
   };
 
   const validationSchema = Yup.object({
-    username: Yup.string()
-      .test(
-        'username-validator',
-        'Enter valid username/email',
-        (value = '') => !(!isValidEmail(value) && !isValidUsername(value))
-      )
-      .required('Enter username/email'),
-    password: Yup.string().matches(passwordRegex, 'Enter valid password').required('Enter password')
+    email: Yup.string()
+      .email(t('validation.email.invalid'))
+      .required(t('validation.email.required')),
+    password: Yup.string()
+      .matches(PASSWORD_REGEX, t('validation.password.invalid'))
+      .required(t('validation.password.required'))
   });
 
   const handleSubmit = async (
-    { username, password }: SignInFormValues,
+    { email, password }: SignInFormValues,
     { setSubmitting }: FormikHelpers<SignInFormValues>
   ): Promise<void> => {
-    setErrorMessage('');
+    setErrorMessageKey('');
 
-    const result = await signIn(username, password);
+    try {
+      const response = await oktaAuth.signInWithCredentials({ username: email, password });
 
-    if (result.success) {
-      navigate('../');
-    } else if (result.errorMessage) {
-      setErrorMessage(result.errorMessage);
+      if (!response.sessionToken) {
+        setErrorMessageKey('error.invalid.credentials');
+      }
+
+      await oktaAuth.signInWithRedirect({ originalUri: '/', sessionToken: response.sessionToken });
+    } catch (error) {
+      const err = error as OktaErrorResponse;
+
+      setErrorMessageKey(
+        err.errorCode === OktaErrorCodes.AUTH_EXCEPTION
+          ? 'error.invalid.credentials'
+          : 'error.auth.service'
+      );
     }
 
     setSubmitting(false);
@@ -58,22 +67,22 @@ export const SignInForm = (): JSX.Element => {
     >
       {({ isSubmitting, ...formik }) => (
         <Form onSubmit={formik.handleSubmit} role="form">
-          {errorMessage && <ErrorMessage message={errorMessage} align="center" />}
+          {errorMessageKey && <ErrorMessage message={t(errorMessageKey)} align="center" />}
           <TextField
-            name="username"
-            placeholder="Enter your username or email"
+            name="email"
+            placeholder={t('login.email.placeholder')}
             disabled={isSubmitting}
             fullWidth
           />
           <TextField
             type="password"
             name="password"
-            placeholder="Enter you password"
+            placeholder={t('login.password.placeholder')}
             disabled={isSubmitting}
             fullWidth
           />
           <Button type="submit" loading={isSubmitting} fullWidth>
-            Sign In
+            {t('login.submit')}
           </Button>
         </Form>
       )}

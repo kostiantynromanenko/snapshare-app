@@ -2,7 +2,7 @@ import React from 'react';
 import { Spinner, SpinnerProps } from '@features/ui';
 import { LoaderContainer } from './styled';
 
-type LoaderProps = SpinnerProps;
+export type LoaderProps = SpinnerProps;
 
 export const Loader = ({
   variant = 'primary',

@@ -1,2 +1,6 @@
-export { makePrivate } from './PrivateRoute/PrivateRoute';
-export { useAuth, ProvideAuth } from './useAuth';
+import { OktaErrorResponse } from './oktaErrorResponse';
+import { ProtectedRouteProps, ProtectedRoute } from './ProtectedRoute';
+import { OktaErrorCodes } from './oktaErrorCodes';
+
+export type { OktaErrorResponse, ProtectedRouteProps };
+export { OktaErrorCodes, ProtectedRoute };
