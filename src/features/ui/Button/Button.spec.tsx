@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { withSystemTheme } from '@features/theme';
 import { Button } from '@features/ui';
-import userEvent from '@testing-library/user-event';
 
 describe('Button', () => {
   it('should render with default props', () => {

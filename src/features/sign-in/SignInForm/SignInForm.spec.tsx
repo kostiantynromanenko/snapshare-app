@@ -3,10 +3,21 @@ import { render, screen } from '@testing-library/react';
 import { withSystemTheme } from '@features/theme';
 import { SignInForm } from './SignInForm';
 
-const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockedUsedNavigate
+  useNavigate: () => jest.fn()
+}));
+
+jest.mock('@okta/okta-react', () => ({
+  useOktaAuth: () => jest.fn()
+}));
+
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (str: string) => str,
+    i18n: {
+      changeLanguage: () => new Promise(() => {})
+    }
+  })
 }));
 
 describe('SignInForm', () => {
