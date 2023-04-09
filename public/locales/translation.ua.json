@@ -14,5 +14,6 @@
     "submit": "Увійти",
     "email.placeholder": "Введіть ваш email",
     "password.placeholder": "Введіть пароль"
-  }
+  },
+  "copyright": "Copyright \u00A9 {{currentYear}} h1totsu"
 }
