@@ -5,9 +5,8 @@ on:
 jobs:
   build:
     env:
-      VITE_AUTH_REGION: ${{ secrets.AWS_REGION }}
-      VITE_AUTH_USER_POOL_ID: ${{ secrets.AWS_COGNITO_USER_POOL_ID }}
-      VITE_AUTH_USER_POOL_WEB_CLIENT_ID: ${{ secrets.AWS_COGNITO_APP_ID }}
+      VITE_OKTA_DOMAIN: ${{ secrets.OKTA_DOMAIN }}
+      VITE_OKTA_CLIENT_ID: ${{ secrets.OKTA_CLIENT_ID }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
