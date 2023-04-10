@@ -13,11 +13,16 @@ jest.mock('@okta/okta-react', () => ({
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
-    t: (str: string) => str,
-    i18n: {
-      changeLanguage: () => new Promise(() => {})
-    }
+    t: (str: string) => str
   })
+}));
+
+jest.mock('../../../config/i18n', () => jest.fn());
+jest.mock('@config', () => ({
+  OKTA_CONFIG: {}
+}));
+jest.mock('@features/feature-flags', () => ({
+  FeatureFlag: () => null
 }));
 
 describe('LoginForm', () => {
