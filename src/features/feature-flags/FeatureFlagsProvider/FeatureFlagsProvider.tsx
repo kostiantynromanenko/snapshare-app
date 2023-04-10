@@ -7,12 +7,7 @@ export interface FeatureFlagsProviderProps {
 }
 
 export const FeatureFlagsProvider = ({ children }: FeatureFlagsProviderProps): JSX.Element => {
-  const features: Features = useMemo(
-    () => ({
-      isGoogleLoginEnabled: import.meta.env.VITE_GOOGLE_LOGIN_ENABLED === 'true'
-    }),
-    []
-  );
+  const features = useMemo(() => ({} as Features), []);
 
   return <FeatureFlags.Provider value={features}>{children}</FeatureFlags.Provider>;
 };

@@ -3,9 +3,8 @@ import { Formik, FormikHelpers } from 'formik';
 import { useOktaAuth } from '@okta/okta-react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
-import { OKTA_GOOGLE_IDP } from '@config';
+import { FEATURES_CONFIG, OKTA_GOOGLE_IDP } from '@config';
 import { PASSWORD_REGEX } from '@features/validation';
-import { FeatureFlag } from '@features/feature-flags';
 import { Button, ErrorMessage, TextField } from '@features/ui';
 import { OktaErrorCodes, OktaErrorResponse } from '@features/auth';
 import { Form, StyledIcon } from './styled';
@@ -90,7 +89,7 @@ export const LoginForm = (): JSX.Element => {
           <Button type="submit" loading={isSubmitting} fullWidth>
             {t('login.submit')}
           </Button>
-          <FeatureFlag feature="isGoogleLoginEnabled">
+          {FEATURES_CONFIG.googleLoginEnabled && (
             <Button
               onClick={() => handleSignInWithGoogle()}
               disabled={isSubmitting}
@@ -100,7 +99,7 @@ export const LoginForm = (): JSX.Element => {
               <StyledIcon code="google" />
               {t('login.google')}
             </Button>
-          </FeatureFlag>
+          )}
         </Form>
       )}
     </Formik>

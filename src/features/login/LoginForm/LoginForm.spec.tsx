@@ -19,10 +19,8 @@ jest.mock('react-i18next', () => ({
 
 jest.mock('../../../config/i18n', () => jest.fn());
 jest.mock('@config', () => ({
-  OKTA_CONFIG: {}
-}));
-jest.mock('@features/feature-flags', () => ({
-  FeatureFlag: () => null
+  OKTA_CONFIG: {},
+  FEATURES_CONFIG: {}
 }));
 
 describe('LoginForm', () => {
