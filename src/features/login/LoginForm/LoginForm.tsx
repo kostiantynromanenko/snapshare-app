@@ -3,17 +3,18 @@ import { Formik, FormikHelpers } from 'formik';
 import { useOktaAuth } from '@okta/okta-react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
+import { FEATURES_CONFIG, OKTA_GOOGLE_IDP } from '@config';
 import { PASSWORD_REGEX } from '@features/validation';
 import { Button, ErrorMessage, TextField } from '@features/ui';
 import { OktaErrorCodes, OktaErrorResponse } from '@features/auth';
-import { Form } from './styled';
+import { Form, StyledIcon } from './styled';
 
 interface SignInFormValues {
   email: string;
   password: string;
 }
 
-export const SignInForm = (): JSX.Element => {
+export const LoginForm = (): JSX.Element => {
   const { oktaAuth } = useOktaAuth();
   const { t } = useTranslation();
   const [errorMessageKey, setErrorMessageKey] = useState('');
@@ -39,13 +40,13 @@ export const SignInForm = (): JSX.Element => {
     setErrorMessageKey('');
 
     try {
-      const response = await oktaAuth.signInWithCredentials({ username: email, password });
+      const transaction = await oktaAuth.signInWithCredentials({ username: email, password });
 
-      if (!response.sessionToken) {
+      if (!transaction.sessionToken) {
         setErrorMessageKey('error.invalid.credentials');
       }
 
-      await oktaAuth.signInWithRedirect({ originalUri: '/', sessionToken: response.sessionToken });
+      await oktaAuth.signInWithRedirect({ sessionToken: transaction.sessionToken });
     } catch (error) {
       const err = error as OktaErrorResponse;
 
@@ -57,6 +58,10 @@ export const SignInForm = (): JSX.Element => {
     }
 
     setSubmitting(false);
+  };
+
+  const handleSignInWithGoogle = async (): Promise<void> => {
+    await oktaAuth.signInWithRedirect({ idp: OKTA_GOOGLE_IDP });
   };
 
   return (
@@ -84,6 +89,17 @@ export const SignInForm = (): JSX.Element => {
           <Button type="submit" loading={isSubmitting} fullWidth>
             {t('login.submit')}
           </Button>
+          {FEATURES_CONFIG.googleLoginEnabled && (
+            <Button
+              onClick={() => handleSignInWithGoogle()}
+              disabled={isSubmitting}
+              variant="secondary"
+              fullWidth
+            >
+              <StyledIcon code="google" />
+              {t('login.google')}
+            </Button>
+          )}
         </Form>
       )}
     </Formik>

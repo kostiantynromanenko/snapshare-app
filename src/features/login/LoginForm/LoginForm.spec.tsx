@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { withSystemTheme } from '@features/theme';
-import { SignInForm } from './SignInForm';
+import { LoginForm } from './LoginForm';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn()
@@ -13,17 +13,20 @@ jest.mock('@okta/okta-react', () => ({
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
-    t: (str: string) => str,
-    i18n: {
-      changeLanguage: () => new Promise(() => {})
-    }
+    t: (str: string) => str
   })
 }));
 
-describe('SignInForm', () => {
+jest.mock('../../../config/i18n', () => jest.fn());
+jest.mock('@config', () => ({
+  OKTA_CONFIG: {},
+  FEATURES_CONFIG: {}
+}));
+
+describe('LoginForm', () => {
   it('should render', () => {
     // when
-    render(withSystemTheme(<SignInForm data-test-id="sign-in-form" />));
+    render(withSystemTheme(<LoginForm />));
     const form = screen.getByRole('form');
 
     // then
