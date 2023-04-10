@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { withSystemTheme } from '@features/theme';
-import { SignInForm } from './SignInForm';
+import { LoginForm } from './LoginForm';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn()
@@ -20,10 +20,10 @@ jest.mock('react-i18next', () => ({
   })
 }));
 
-describe('SignInForm', () => {
+describe('LoginForm', () => {
   it('should render', () => {
     // when
-    render(withSystemTheme(<SignInForm data-test-id="sign-in-form" />));
+    render(withSystemTheme(<LoginForm />));
     const form = screen.getByRole('form');
 
     // then
