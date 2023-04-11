@@ -2,6 +2,7 @@ import React from 'react';
 import { FieldHookConfig, useField } from 'formik';
 import { ErrorMessage, Input, InputProps, Label } from '@features/ui';
 import { getComponentClass } from '../utils/classnames';
+import { StyledTextField } from './styled';
 
 export type TextFieldProps = InputProps &
   FieldHookConfig<string> & {
@@ -15,10 +16,10 @@ export const TextField = ({ label, className, ...props }: TextFieldProps): JSX.E
   const hasError = meta.touched && !!error;
 
   return (
-    <fieldset className={getComponentClass('text-field', className)}>
+    <StyledTextField className={getComponentClass('text-field', className)}>
       {label && <Label htmlFor={id || name}>{label}</Label>}
       <Input {...field} {...props} hasError={hasError} />
       {hasError ? <ErrorMessage message={error} /> : null}
-    </fieldset>
+    </StyledTextField>
   );
 };

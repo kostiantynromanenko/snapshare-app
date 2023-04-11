@@ -1,8 +1,8 @@
 export const systemTheme = {
   palette: {
     primary: {
-      main: '#FBB351',
-      contrastText: '#06050F'
+      main: 'rgb(77 149 140)',
+      contrastText: '#ffffff'
     },
     secondary: {
       main: '#fff1dc',
@@ -13,7 +13,7 @@ export const systemTheme = {
       contrastText: '#ffffff'
     },
     error: {
-      main: '#eb455f',
+      main: 'rgb(199 99 115)',
       contrastText: '#ffffff'
     },
     text: {

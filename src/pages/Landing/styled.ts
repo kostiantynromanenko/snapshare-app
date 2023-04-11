@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { LanguageSwitcher } from '@features/i18n';
 
 export const Container = styled.div`
@@ -7,9 +7,7 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/landing-bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: ${({ theme }) => theme.palette.background.landing};
 `;
 
 export const ContentBox = styled.main`
@@ -19,21 +17,23 @@ export const ContentBox = styled.main`
   height: 600px;
   width: 800px;
   border-radius: 10px;
-  box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.5);
-  background-color: ${({ theme }) => theme.palette.common.white};
 
-  ${({ theme }) => theme.breakpoints.down('laptop')} {
-    width: 90%;
-  }
+  ${({ theme }) => css`
+    box-shadow: ${theme.shadows[1]};
+    background-color: ${theme.palette.common.white};
 
-  ${({ theme }) => theme.breakpoints.down('tablet')} {
-    grid-template-columns: 1.5fr 1fr;
-  }
+    ${theme.breakpoints.down('laptop')} {
+      width: 90%;
+    }
 
-  ${({ theme }) => theme.breakpoints.down('mobile')} {
-    display: flex;
-    flex-direction: column;
-  }
+    ${theme.breakpoints.down('tablet')} {
+      grid-template-columns: 1.5fr 1fr;
+    }
+
+    ${theme.breakpoints.down('mobile')} {
+      grid-template-columns: 1fr;
+    }
+  `}
 `;
 
 export const Content = styled.div`
@@ -44,20 +44,39 @@ export const Content = styled.div`
   padding: ${({ theme }) => theme.spacing(4)};
 `;
 
+export const WordMark = styled.h1`
+  font-size: 2.5rem;
+
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacing(4)};
+    color: ${theme.palette.primary.main};
+  `}
+`;
+
 export const ImageSection = styled.div`
-  background-image: url(/images/sign-in-form-bg.png);
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  background-image: url(/images/sign-in-form-bg-lg.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
-  ${({ theme }) => theme.breakpoints.down('mobile')} {
-    height: 100%;
-  }
+  ${({ theme }) => css`
+    background-color: ${theme.palette.grey[800]};
+
+    ${theme.breakpoints.down('mobile')} {
+      grid-row-start: 1;
+      background-image: url(/images/sign-in-form-bg-sm.png);
+      background-position-y: top;
+    }
+  `}
 `;
 
 export const LangSwitcher = styled(LanguageSwitcher)`
   position: absolute;
   top: 24px;
   right: 24px;
+
+  ${({ theme }) => theme.breakpoints.down('mobile')}: {
+    right: 5%;
+    top: 5%;
+  }
 `;

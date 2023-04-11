@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { FEATURES_CONFIG, OKTA_GOOGLE_IDP } from '@config';
 import { PASSWORD_REGEX } from '@features/validation';
 import { Button, ErrorMessage, TextField } from '@features/ui';
-import { Form, StyledIcon } from './styled';
+import { Form, GoogleLoginButton, StyledIcon } from './styled';
 import { useLogin } from '../useLogin';
 
 interface SignInFormValues {
@@ -71,15 +71,14 @@ export const LoginForm = (): JSX.Element => {
             {t('login.submit')}
           </Button>
           {FEATURES_CONFIG.googleLoginEnabled && (
-            <Button
+            <GoogleLoginButton
               onClick={() => handleSignInWithGoogle()}
               disabled={isSubmitting}
-              variant="secondary"
               fullWidth
             >
               <StyledIcon code="google" />
               {t('login.google')}
-            </Button>
+            </GoogleLoginButton>
           )}
         </Form>
       )}

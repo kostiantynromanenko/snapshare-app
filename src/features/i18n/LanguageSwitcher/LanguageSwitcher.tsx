@@ -2,7 +2,7 @@ import React from 'react';
 import { PropsWithClassName } from '@features/utils';
 import { useTranslation } from 'react-i18next';
 import { AVAILABLE_LANGUAGES } from '@config';
-import { Switcher, SwitcherIcon, SwitcherLabel, SwitcherRadio } from './styled';
+import { Switcher, SwitcherIcon, SwitcherOption, SwitcherLabel, SwitcherRadio } from './styled';
 
 export interface LanguageSwitcherProps extends PropsWithClassName {}
 
@@ -14,7 +14,7 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps): JSX.Elem
     const optionId = getOptionId(lang);
 
     return (
-      <fieldset key={optionId}>
+      <SwitcherOption key={optionId}>
         <SwitcherRadio
           type="radio"
           name="lang"
@@ -27,7 +27,7 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps): JSX.Elem
           <SwitcherIcon code={icon} />
           {lang.toLocaleUpperCase()}
         </SwitcherLabel>
-      </fieldset>
+      </SwitcherOption>
     );
   });
 
