@@ -1,3 +1,4 @@
+export type { ThemeVariant } from './themeVariant';
 export { createTheme } from './createTheme';
 export { withTheme, withSystemTheme } from './withTheme';
-export type { ThemeVariant } from './createPalette';
+export { THEME_VARIANTS } from './themeVariant';

@@ -1,7 +1,6 @@
 import { deepmerge } from 'deepmerge-ts';
 import { systemTheme } from './systemTheme';
-
-export type ThemeVariant = 'primary' | 'secondary' | 'error' | 'success';
+import { ThemeVariant } from './themeVariant';
 
 type PaletteColorOption = {
   main?: string;

@@ -8,6 +8,10 @@ export const systemTheme = {
       main: '#fff1dc',
       contrastText: '#000000'
     },
+    success: {
+      main: '#1a9264',
+      contrastText: '#ffffff'
+    },
     error: {
       main: '#eb455f',
       contrastText: '#ffffff'

@@ -1,1 +1,2 @@
-export type ThemeVariant = 'primary' | 'secondary' | 'error' | 'white';
+export const THEME_VARIANTS = ['primary', 'secondary', 'success', 'error'] as const;
+export type ThemeVariant = (typeof THEME_VARIANTS)[number];
