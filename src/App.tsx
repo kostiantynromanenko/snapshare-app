@@ -20,7 +20,7 @@ const App = (): JSX.Element => {
     document.title = t('title');
   }, [lang, t]);
 
-  const restoreOriginalUri = (_oktaAuth: any, originalUri: any): void => {
+  const restoreOriginalUri = (_oktaAuth: any, originalUri: string): void => {
     navigate(toRelativeUrl(originalUri || '/', window.location.origin));
   };
 

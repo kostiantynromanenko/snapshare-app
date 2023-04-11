@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
 import { useOktaAuth } from '@okta/okta-react';
 import { useTranslation } from 'react-i18next';
@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 import { FEATURES_CONFIG, OKTA_GOOGLE_IDP } from '@config';
 import { PASSWORD_REGEX } from '@features/validation';
 import { Button, ErrorMessage, TextField } from '@features/ui';
-import { OktaErrorCodes, OktaErrorResponse } from '@features/auth';
 import { Form, StyledIcon } from './styled';
+import { useLogin } from '../useLogin';
 
 interface SignInFormValues {
   email: string;
@@ -17,7 +17,7 @@ interface SignInFormValues {
 export const LoginForm = (): JSX.Element => {
   const { oktaAuth } = useOktaAuth();
   const { t } = useTranslation();
-  const [errorMessageKey, setErrorMessageKey] = useState('');
+  const { errorMessage, loginWithRedirect } = useLogin();
 
   const initialValues: SignInFormValues = {
     email: '',
@@ -37,26 +37,7 @@ export const LoginForm = (): JSX.Element => {
     { email, password }: SignInFormValues,
     { setSubmitting }: FormikHelpers<SignInFormValues>
   ): Promise<void> => {
-    setErrorMessageKey('');
-
-    try {
-      const transaction = await oktaAuth.signInWithCredentials({ username: email, password });
-
-      if (!transaction.sessionToken) {
-        setErrorMessageKey('error.invalid.credentials');
-      }
-
-      await oktaAuth.signInWithRedirect({ sessionToken: transaction.sessionToken });
-    } catch (error) {
-      const err = error as OktaErrorResponse;
-
-      setErrorMessageKey(
-        err.errorCode === OktaErrorCodes.AUTH_EXCEPTION
-          ? 'error.invalid.credentials'
-          : 'error.auth.service'
-      );
-    }
-
+    await loginWithRedirect(email, password);
     setSubmitting(false);
   };
 
@@ -72,7 +53,7 @@ export const LoginForm = (): JSX.Element => {
     >
       {({ isSubmitting, ...formik }) => (
         <Form onSubmit={formik.handleSubmit} role="form">
-          {errorMessageKey && <ErrorMessage message={t(errorMessageKey)} align="center" />}
+          {errorMessage && <ErrorMessage message={errorMessage} align="center" />}
           <TextField
             name="email"
             placeholder={t('login.email.placeholder')}
