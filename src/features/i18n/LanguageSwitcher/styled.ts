@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '@features/ui';
 
-export const Switcher = styled.div`
+export const Switcher = styled.fieldset`
   display: flex;
   flex-direction: row;
   gap: ${({ theme }) => theme.spacing(1)};
 `;
 
-export const SwitcherOption = styled.fieldset`
+export const SwitcherOption = styled.div`
   border-radius: 4px;
 
   ${({ theme }) => css`

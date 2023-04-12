@@ -59,6 +59,7 @@ export const LoginForm = (): JSX.Element => {
             placeholder={t('login.email.placeholder')}
             disabled={isSubmitting}
             fullWidth
+            aria-label="Email"
           />
           <TextField
             type="password"
@@ -66,6 +67,7 @@ export const LoginForm = (): JSX.Element => {
             placeholder={t('login.password.placeholder')}
             disabled={isSubmitting}
             fullWidth
+            aria-label="Password"
           />
           <Button type="submit" loading={isSubmitting} fullWidth>
             {t('login.submit')}

@@ -1,5 +1,5 @@
 import { Button, Icon } from '@features/ui';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Form = styled.form`
   display: flex;
@@ -13,5 +13,8 @@ export const StyledIcon = styled(Icon)`
 `;
 
 export const GoogleLoginButton = styled(Button)`
-  background-color: ${({ theme }) => theme.palette.grey[700]};
+  ${({ theme }) => css`
+    background-color: ${theme.palette.grey[700]};
+    color: ${theme.palette.common.white};
+  `}
 `;
