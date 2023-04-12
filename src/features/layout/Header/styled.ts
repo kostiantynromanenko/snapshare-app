@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button } from '@features/ui';
 
 export const StyledHeader = styled.header`
@@ -6,8 +6,11 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing(2, 2)};
-  background-color: ${({ theme }) => theme.palette.primary.main};
+
+  ${({ theme }) => css`
+    padding: ${theme.spacing(2)};
+    background-color: ${theme.palette.primary.main};
+  `}
 `;
 
 export const LogoutButton = styled(Button)`

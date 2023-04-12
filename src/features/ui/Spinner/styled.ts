@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { ThemeVariant } from '@features/theme';
 import { getVariantColor } from '../utils/getColors';
 
@@ -18,10 +18,13 @@ const spin = keyframes`
 `;
 
 export const StyledSpinner = styled.div<StyledSpinnerProps>`
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
-  border: ${({ thickness }) => thickness}px solid;
   border-color: ${getVariantColor()} transparent ${getVariantColor()} transparent;
   border-radius: 50%;
   animation: ${spin} 1.2s linear infinite;
+
+  ${({ size, thickness }) => css`
+    width: ${size}px;
+    height: ${size}px;
+    border: ${thickness}px solid;
+  `}
 `;

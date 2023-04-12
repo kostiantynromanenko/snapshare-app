@@ -11,8 +11,7 @@
     "plugin:react/recommended",
     "airbnb",
     "prettier",
-    "plugin:jest-dom/recommended",
-    "plugin:storybook/recommended"
+    "plugin:jest-dom/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

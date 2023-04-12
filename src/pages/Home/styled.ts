@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
   display: grid;
-  grid-template-columns: 360px auto;
-  grid-template-rows: 60px auto 60px;
-  grid-template-areas:
-    'header header'
-    'sidebar content'
-    'footer footer';
+  grid-template:
+    'header header' 60px
+    'sidebar content' auto
+    'footer footer' 60px;
   height: 100vh;
 `;
 

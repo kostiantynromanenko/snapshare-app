@@ -54,7 +54,7 @@ export const WordMark = styled.h1`
 `;
 
 export const ImageSection = styled.div`
-  background-image: url(/images/sign-in-form-bg-lg.png);
+  background-image: url('/images/login-bg-lg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -64,7 +64,7 @@ export const ImageSection = styled.div`
 
     ${theme.breakpoints.down('mobile')} {
       grid-row-start: 1;
-      background-image: url(/images/sign-in-form-bg-sm.png);
+      background-image: url('/images/login-bg-sm.png');
       background-position-y: top;
     }
   `}
