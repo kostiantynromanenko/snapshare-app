@@ -19,7 +19,7 @@ export const Spinner = ({
   <StyledSpinner
     className={getComponentClass('spinner', className, variant)}
     variant={variant}
-    size={size}
+    $size={size}
     thickness={thickness}
     role="alert"
   />

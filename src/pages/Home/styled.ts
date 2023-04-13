@@ -5,7 +5,7 @@ export const Container = styled.main`
   grid-template:
     'header header' 60px
     'sidebar content' auto
-    'footer footer' 60px;
+    'footer footer' 60px / 300px auto;
   height: 100vh;
 `;
 

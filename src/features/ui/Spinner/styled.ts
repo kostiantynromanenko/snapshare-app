@@ -4,7 +4,7 @@ import { getVariantColor } from '../utils/getColors';
 
 interface StyledSpinnerProps {
   readonly variant: ThemeVariant;
-  readonly size: number;
+  readonly $size: number;
   readonly thickness: number;
 }
 
@@ -18,13 +18,14 @@ const spin = keyframes`
 `;
 
 export const StyledSpinner = styled.div<StyledSpinnerProps>`
-  border-color: ${getVariantColor()} transparent ${getVariantColor()} transparent;
   border-radius: 50%;
   animation: ${spin} 1.2s linear infinite;
+  border-style: solid;
+  border-color: ${getVariantColor()} transparent ${getVariantColor()} transparent;
 
-  ${({ size, thickness }) => css`
-    width: ${size}px;
-    height: ${size}px;
-    border: ${thickness}px solid;
+  ${({ $size, thickness }) => css`
+    width: ${$size}px;
+    height: ${$size}px;
+    border-width: ${thickness}px;
   `}
 `;
