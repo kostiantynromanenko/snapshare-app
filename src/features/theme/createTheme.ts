@@ -7,6 +7,7 @@ interface ThemeOptions {
   palette?: PaletteOptions;
   breakpoints?: BreakpointsOptions;
   spacing?: number;
+
   [key: string]: any;
 }
 

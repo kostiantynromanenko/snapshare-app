@@ -8,6 +8,7 @@ declare module 'styled-components' {
     palette: Palette;
     breakpoints: Breakpoints;
     spacing: Spacing;
+
     [key: string]: any;
   }
 }

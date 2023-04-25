@@ -1,5 +1,5 @@
 import { OktaErrorResponse } from './oktaErrorResponse';
-import { ProtectedRouteProps, ProtectedRoute } from './ProtectedRoute';
+import { ProtectedRoute, ProtectedRouteProps } from './ProtectedRoute';
 import { OktaErrorCodes } from './oktaErrorCodes';
 
 export type { OktaErrorResponse, ProtectedRouteProps };

@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "jest --watchAll=false",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,scss,json}",
-    "lint:code": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "lint:styles": "stylelint src/**/styled.{ts,tsx}",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,scss,json}\"",
+    "lint:code": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:styles": "stylelint \"src/**/styled.{ts,tsx}\"",
     "lint": "pnpm run lint:code && pnpm run lint:styles",
     "preview": "vite preview",
     "prepare": "husky install"
