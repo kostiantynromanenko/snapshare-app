@@ -7,7 +7,6 @@ import '@fontsource/roboto/700.css';
 
 export const GlobalStyles = createGlobalStyle`
   ${reset}
-  
   *, *::after, *::before {
     box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
@@ -15,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
     color: ${({ theme }) => theme.palette.text.primary};
   }
 `;

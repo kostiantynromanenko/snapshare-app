@@ -1,6 +1,6 @@
 import React from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { StyledHeader, LogoutButton } from './styled';
+import { LogoutButton, StyledHeader } from './styled';
 
 export const Header = (): JSX.Element => {
   const { oktaAuth } = useOktaAuth();

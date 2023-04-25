@@ -2,7 +2,7 @@ import React from 'react';
 import { PropsWithClassName } from '@features/utils';
 import { useTranslation } from 'react-i18next';
 import { AVAILABLE_LANGUAGES } from '@config';
-import { Switcher, SwitcherIcon, SwitcherOption, SwitcherLabel, SwitcherRadio } from './styled';
+import { Switcher, SwitcherIcon, SwitcherLabel, SwitcherOption, SwitcherRadio } from './styled';
 
 export interface LanguageSwitcherProps extends PropsWithClassName {}
 
